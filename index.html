@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Registration Form</title>
+    <script>
+        function toggleMacAddressField(deviceCheckbox) {
+            const deviceId = deviceCheckbox.value;
+            const macField = document.getElementById('macField_' + deviceId);
+
+            if (deviceCheckbox.checked) {
+                macField.style.display = 'block';
+            } else {
+                macField.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Device Registration Form</h2>
+    <h3>Chief Adviser Office</h3>
+    <form action="process_form.php" method="post" enctype="multipart/form-data">
+        <!-- Name -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Designation -->
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" name="designation" required><br><br>
+
+        <!-- Section -->
+        <label for="section">Section:</label>
+        <input type="text" id="section" name="section" required><br><br>
+
+        <!-- Block -->
+        <label for="block">Block:</label>
+        <select id="block" name="block" required>
+            <option value="ICC">ICC</option>
+            <option value="DG">DG</option>
+            <option value="Director">Director</option>
+        </select><br><br>
+
+        <!-- Room No. -->
+        <label for="room_no">Room No.:</label>
+        <input type="text" id="room_no" name="room_no" required><br><br>
+
+        <!-- Devices -->
+        <label for="devices">Devices:</label><br>
+        <input type="checkbox" name="devices[]" value="Desktop" onchange="toggleMacAddressField(this)"> Desktop<br>
+        <div id="macField_Desktop" style="display:none; margin-left:20px;">
+            <label for="mac_address_Desktop">MAC Address (Input):</label>
+            <input type="text" id="mac_address_Desktop" name="mac_addresses[Desktop]"><br><br>
+            <label for="mac_file_Desktop">MAC Address (Upload):</label>
+            <input type="file" id="mac_file_Desktop" name="mac_files[Desktop]"><br><br>
+        </div>
+
+        <input type="checkbox" name="devices[]" value="Laptop" onchange="toggleMacAddressField(this)"> Laptop<br>
+        <div id="macField_Laptop" style="display:none; margin-left:20px;">
+            <label for="mac_address_Laptop">MAC Address (Input):</label>
+            <input type="text" id="mac_address_Laptop" name="mac_addresses[Laptop]"><br><br>
+            <label for="mac_file_Laptop">MAC Address (Upload):</label>
+            <input type="file" id="mac_file_Laptop" name="mac_files[Laptop]"><br><br>
+        </div>
+
+        <input type="checkbox" name="devices[]" value="Mobile1" onchange="toggleMacAddressField(this)"> Mobile1<br>
+        <div id="macField_Mobile1" style="display:none; margin-left:20px;">
+            <label for="mac_address_Mobile1">MAC Address (Input):</label>
+            <input type="text" id="mac_address_Mobile1" name="mac_addresses[Mobile1]"><br><br>
+            <label for="mac_file_Mobile1">MAC Address (Upload):</label>
+            <input type="file" id="mac_file_Mobile1" name="mac_files[Mobile1]"><br><br>
+        </div>
+
+        <input type="checkbox" name="devices[]" value="Mobile2" onchange="toggleMacAddressField(this)"> Mobile2<br>
+        <div id="macField_Mobile2" style="display:none; margin-left:20px;">
+            <label for="mac_address_Mobile2">MAC Address (Input):</label>
+            <input type="text" id="mac_address_Mobile2" name="mac_addresses[Mobile2]"><br><br>
+            <label for="mac_file_Mobile2">MAC Address (Upload):</label>
+            <input type="file" id="mac_file_Mobile2" name="mac_files[Mobile2]"><br><br>
+        </div>
+
+        <input type="checkbox" name="devices[]" value="Printer" onchange="toggleMacAddressField(this)"> Printer<br>
+        <div id="macField_Printer" style="display:none; margin-left:20px;">
+            <label for="mac_address_Printer">MAC Address (Input):</label>
+            <input type="text" id="mac_address_Printer" name="mac_addresses[Printer]"><br><br>
+            <label for="mac_file_Printer">MAC Address (Upload):</label>
+            <input type="file" id="mac_file_Printer" name="mac_files[Printer]"><br><br>
+        </div>
+
+        <input type="checkbox" name="devices[]" value="Scanner" onchange="toggleMacAddressField(this)"> Scanner<br>
+        <div id="macField_Scanner" style="display:none; margin-left:20px;">
+            <label for="mac_address_Scanner">MAC Address (Input):</label>
+            <input type="text" id="mac_address_Scanner" name="mac_addresses[Scanner]"><br><br>
+            <label for="mac_file_Scanner">MAC Address (Upload):</label>
+            <input type="file" id="mac_file_Scanner" name="mac_files[Scanner]"><br><br>
+        </div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
